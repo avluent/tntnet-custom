@@ -1,0 +1,62 @@
+<%args>
+double arg1 = 0;     // typed parameter with default value
+double arg2 = 0;     // typed parameter with default value
+char op = ' ';       // typed parameter with default value
+</%args>
+<%cpp>  // <= this starts a c++-processing-block
+
+  double result = 0.0;
+
+  bool result_ok = true;
+  switch (op)
+  {
+    case '+': result = arg1 + arg2; break;
+    case '-': result = arg1 - arg2; break;
+    case '*': result = arg1 * arg2; break;
+    case '/': result = arg1 / arg2; break;
+    default: result_ok = false;
+  }
+
+</%cpp> <# <= this terminates a c++-processing-block (and this is a ecpp-comment) #>
+<html>
+ <head>
+  <title>Calculator</title>
+  <link rel="icon" type="img/png" href="img/favicon-32x32.png" />
+ </head>
+ <body bgcolor="#ccf2ff">
+  <h1>Jos Test Calculator</h1>
+
+	<img height="300px" width="400px" src="mb/resources/img/success.jpg"></img><br><br>
+	<img src="mb/resources/img/bail.jpg"></img><br>
+<br>
+<br>
+	<iframe src="mb/resources/lib/libs.txt" width="50%" heigth="150px"></iframe>
+	<iframe src="mb/resources/lib/jQuery/test.txt" width="50%" heigth="150px"></iframe>
+
+
+<br>
+<br>
+
+
+
+  <form>
+
+   <# you can output other types as well - arg1 and arg2 are of type double.
+      They just need a outputstream-operator #>
+   <input type="text" name="arg1" value="<$arg1$>"> <br>
+   <input type="text" name="arg2" value="<$arg2$>"> <br>
+   <input type="submit" name="op" value="+">
+   <input type="submit" name="op" value="-">
+   <input type="submit" name="op" value="*">
+   <input type="submit" name="op" value="/">
+  </form>
+
+% if (result_ok) {    // '%' in the first column makes a c++-one-liner
+
+  <hr>
+  <$arg1$> <$op$> <$arg2$> = <$result$>
+
+% }
+
+ </body>
+</html>

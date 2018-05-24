@@ -1,0 +1,29 @@
+<html>
+ <head>
+  <title>Calculator</title>
+  <script type="text/javascript" src="mb/resources/lib/jQuery/jquery.js"></script>
+  <script type="text/javascript" src="calculator.js"></script>
+ <head>
+ <body bgcolor=#ffffcc>
+  <h1>Tommi's Tnt-Calculator</h1>
+
+  <form method='post'>
+   <input type="text" value="0" id="arg1"> <br>
+   <input type="text" value="0" id="arg2"> <br>
+   <input type="button" id="plus" value="+">
+   <input type="button" id="minus" value="-">
+   <input type="button" id="mul" value="*">
+   <input type="button" id="div" value="/">
+  </form>
+
+  <div id="result" style="display:none">
+    <hr>
+    <span id='outarg1'></span>
+    <span id='outop'></span>
+    <span id='outarg2'></span>
+    =
+    <span id='outresult'></span>
+  </div>
+
+ </body>
+</html>
