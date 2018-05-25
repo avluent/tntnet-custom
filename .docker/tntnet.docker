@@ -1,0 +1,76 @@
+###########################################################
+
+# Dockerfile to build TNTnet container image
+# Based on Ubuntu
+
+###########################################################
+
+
+# Set the base image
+FROM ubuntu
+
+# File Author / Maintainer
+MAINTAINER Jos Avezaat
+
+################### BEGIN INSTALLATION ####################
+
+# Update the repository sources list
+RUN apt-get update
+
+# Install dependencies
+RUN apt-get install -y wget build-essential automake libtool \
+	libssl-dev postgresql-server-dev-all libmysqlclient-dev \
+	libsqlite3-dev git 
+
+RUN cd /usr/src \
+	&& wget http://www.tntnet.org/download/cxxtools-3.0rc2.tar.gz \
+	&& tar -xzf cxxtools-3.0rc2.tar.gz \
+	&& mv -f cxxtools-3.0rc2 cxxtools \
+	&& wget http://www.tntnet.org/download/tntnet-3.0rc2.tar.gz \
+	&& tar -xzf tntnet-3.0rc2.tar.gz \
+	&& mv -f tntnet-3.0rc2 tntnet \
+	&& wget http://www.tntnet.org/download/tntdb-1.4rc2.tar.gz \
+	&& tar -xzf tntdb-1.4rc2.tar.gz \
+	&& mv -f tntdb-1.4rc2 tntdb
+
+# Configure, make and make install TNTnet Applications
+
+RUN cd /usr/src/cxxtools \
+	&& ./configure \
+	&& make \
+	&& make install \
+	&& ldconfig
+
+RUN cd /usr/src/tntnet \
+	&& ./configure \
+	&& make \
+	&& make install \
+	&& ldconfig
+
+RUN cd /usr/src/tntdb \
+	&& ./configure \
+	&& make \
+	&& make install \
+	&& ldconfig
+
+################### CREATE ENVIRONMENT ###################
+
+# Create workdir and git the project files in there
+RUN cd /usr/local/share \
+	&& git clone https://github.com/avluent/tntnet-custom 
+
+# Create Workdir linking host to container
+# ADD /usr/local/share/tntnet-custom /usr/local/share/tntnet-custom
+
+# Make and run our own project
+RUN cd /usr/local/share/tntnet-custom \
+	&& find . -name .gitkeep | xargs rm $* \
+	&& make 
+
+#################### INSTALLATION END ####################
+
+# Expose to port in main.cpp
+EXPOSE 8000
+
+# Create default Entrypoint
+ENTRYPOINT usr/local/share/tntnet-custom/calcajax
