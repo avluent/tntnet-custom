@@ -18,7 +18,7 @@ jsdir:=$(srcdir)js/
 cssdir:=$(srcdir)css/
 
 #compiler and environment variables
-ECPPC=/usr/share/bin/ecppc
+ECPPC=/usr/local/bin/ecppc
 LDFLAGS+=-ltntnet -lcxxtools -L$(libdir)
 CXXFLAGS+=-Wall -g -o2 -std=c++11
 CXX=g++
