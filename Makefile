@@ -11,20 +11,20 @@ vardir:=$(project-dir)var/
 cppdir:=$(srcdir)cpp/
 cpp-build-dir:=$(builddir)cpp/
 ecppdir:=$(srcdir)ecpp/
-hppdir:=$(srcdir)hpp/
+hdir:=$(srcdir)h/
 objdir:=$(builddir)obj/
 depsdir:=$(srcdir).deps/
 jsdir:=$(srcdir)js/
 cssdir:=$(srcdir)css/
 
 #compiler and environment variables
-ECPPC=/usr/bin/ecppc
+ECPPC=/usr/share/bin/ecppc
 LDFLAGS+=-ltntnet -lcxxtools -L$(libdir)
 CXXFLAGS+=-Wall -g -o2 -std=c++11
 CXX=g++
 
 #virtual paths
-vpath %.hpp $(hppdir) $(libdir)
+vpath %.h $(hdir) $(libdir)
 vpath %.cpp $(cppdir) $(cpp-build-dir) $(libdir)
 vpath %.ecpp $(ecppdir)
 vpath %.o $(objdir)
@@ -103,7 +103,7 @@ spawn:
 	@if [ ! -d $(libdir) ];then echo "Creating directory: $(libdir)" && mkdir $(libdir); fi
 	@if [ ! -d $(resources-dir) ];then echo "Creating directory: $(resources-dir)" && mkdir $(resources-dir); fi
 	@if [ ! -d $(vardir) ];then echo "Creating directory: $(vardir)" && mkdir $(vardir); fi
-	@if [ ! -d $(hppdir) ];then echo "Creating directory: $(hppdir)" && mkdir $(hppdir); fi
+	@if [ ! -d $(hdir) ];then echo "Creating directory: $(hdir)" && mkdir $(hdir); fi
 	@if [ ! -d $(cppdir) ];then echo "Creating directory: $(cppdir)" && mkdir $(cppdir); fi
 	@if [ ! -d $(cpp-build-dir) ];then echo "Creating directory: $(cpp-build-dir)" && mkdir $(cpp-build-dir); fi
 	@if [ ! -d $(ecppdir) ];then echo "Creating directory: $(ecppdir)" && mkdir $(ecppdir); fi
