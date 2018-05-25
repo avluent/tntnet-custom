@@ -55,12 +55,8 @@ RUN cd /usr/src/tntdb \
 
 ################### CREATE ENVIRONMENT ###################
 
-# Create workdir and git the project files in there
-RUN cd /usr/local/share \
-	&& git clone https://github.com/avluent/tntnet-custom 
-
-# Create Workdir linking host to container
-# ADD /usr/local/share/tntnet-custom /usr/local/share/tntnet-custom
+# Move the files from host dir to Docker image
+ADD ../ /usr/local/share/tntnet-custom
 
 # Make and run our own project
 RUN cd /usr/local/share/tntnet-custom \
