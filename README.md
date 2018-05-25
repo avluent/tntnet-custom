@@ -6,8 +6,10 @@ You'll need to:
 * Install Docker
 * Git clone this repo to the working directory of your choosing
 ## Installation
-`git clone https://github.com/avluent/tntnet-custom.git
-cd tntnet-custom/.docker`
+`git clone https://github.com/avluent/tntnet-custom.git`
+
+`cd tntnet-custom/.docker`
+
 And run the commands in the commands.txt file.
 
 The script will automatically build the Docker image named after the repo. The second command will start the container with the port configured to 8000. In the current project files, you'll find one of the example projects by Tommi Maekitalo.
