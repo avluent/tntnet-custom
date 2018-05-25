@@ -17,8 +17,6 @@ And run the commands in the commands.txt file.
 The script will automatically build the Docker image named after the repo. The second command will start the container with the port configured to 8000. In the current project files, you'll find one of the example projects by Tommi Maekitalo.
 ## The Makefile
 For this build, I chose not to use automake, but to construct a makefile for my own. The easy part is that you can just drop your project files into the `src/<filetype>` folder. The Docker file will manage the make process while building the Docker image.
-## The Dockerfile
-The dockerfile was composed, to use the source code in this repository and to always fetch this repository when building the Docker image. We highly recommend you adjust the docker file to match your project.
 ## tntnet
 For more information on this great project, visit the following git Repo or the website:
 `https://github.com/maekitalo`
