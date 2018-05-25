@@ -56,7 +56,7 @@ RUN cd /usr/src/tntdb \
 ################### CREATE ENVIRONMENT ###################
 
 # Move the files from host dir to Docker image
-ADD ../ /usr/local/share/tntnet-custom
+ADD . /usr/local/share/tntnet-custom
 
 # Make and run our own project
 RUN cd /usr/local/share/tntnet-custom \
