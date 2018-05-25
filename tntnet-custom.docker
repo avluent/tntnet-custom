@@ -60,7 +60,7 @@ ADD . /usr/local/share/tntnet-custom
 
 # Make and run our own project
 RUN cd /usr/local/share/tntnet-custom \
-	&& find . -type f -name .gitkeep | xargs rm $* \
+	&& find . -type f -name .git* | xargs rm $* \
 	&& make 
 
 #################### INSTALLATION END ####################
