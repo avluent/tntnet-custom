@@ -1,2 +1,1 @@
-sudo docker build -f tntnet-custom --no-cache -t tntnet-custom -f tntnet-custom.docker .
-sudo docker run -p 8000:8000 -d tntnet-custom:latest
+sudo docker build -f tntnet-custom --no-cache -t tntnet-custom -f tntnet-custom.docker . && sudo docker run -p 8000:8000 -d tntnet-custom:latest
