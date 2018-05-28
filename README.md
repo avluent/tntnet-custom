@@ -8,7 +8,7 @@ You'll need to:
 * Install Docker
 * Git clone this repo to the working directory of your choosing
 ## Installation
-`git clone https://github.com/avluent/tntnet-custom.git`
+`git clone https://github.com/avluent/tntnet-docker.git`
 
 `cd tntnet-custom`
 
