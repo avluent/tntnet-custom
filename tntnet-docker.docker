@@ -56,10 +56,10 @@ RUN cd /usr/src/tntdb \
 ################### CREATE ENVIRONMENT ###################
 
 # Move the files from host dir to Docker image
-ADD . /usr/local/share/tntnet-custom
+ADD . /usr/local/share/tntnet-docker
 
 # Make and run our own project
-RUN cd /usr/local/share/tntnet-custom \
+RUN cd /usr/local/share/tntnet-docker \
 	&& find . -type f -name .git* | xargs rm $* \
 	&& make 
 
@@ -69,4 +69,4 @@ RUN cd /usr/local/share/tntnet-custom \
 EXPOSE 8000
 
 # Create default Entrypoint
-ENTRYPOINT usr/local/share/tntnet-custom/calcajax
+ENTRYPOINT usr/local/share/tntnet-docker/calcajax
