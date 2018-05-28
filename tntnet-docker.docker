@@ -60,7 +60,7 @@ ADD . /usr/local/share/tntnet-docker
 
 # Make and run our own project
 RUN cd /usr/local/share/tntnet-docker \
-	&& find . -type f -name .git* | xargs rm $* \
+	&& find . -type f -iname ".git*" | xargs rm $* \
 	&& make 
 
 #################### INSTALLATION END ####################
