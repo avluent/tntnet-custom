@@ -1,4 +1,4 @@
-# tntnet-custom
+# tntnet-docker
 ## Description
 This repo contains all the files necessary to create a stand-alone Docker Container running tntnet based of Ubuntu. TNTnet is a C++ webserver, that can be configured as a regular webserver, or can be compiled into your application directly, making your standalone C++ application available for the web. *Isn't that awesome?*
 
