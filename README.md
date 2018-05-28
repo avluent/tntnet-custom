@@ -10,7 +10,7 @@ You'll need to:
 ## Installation
 `git clone https://github.com/avluent/tntnet-docker.git`
 
-`cd tntnet-custom`
+`cd tntnet-docker`
 
 And run the commands in the commands.txt file.
 
